@@ -1,0 +1,24 @@
+#!/bin/bash  #shbang
+#$PATH= ~/bin/osys2022_script  #path link
+exec &> /home/bmcguire/bin/osys2022_assign2_output.txt #sends the execuated script output to the file listed. 
+echo "" #blank line
+echo "Kernel Name, Kernel Release, Kernal Version" #header
+echo ""
+uname -r  #find linux kernel version, -r is the kernal release
+echo ""
+echo ""
+echo "Amount of Free Memory"
+echo ""
+free -m #free shows free memory, -m puts it in MB
+echo ""
+echo ""
+echo "Storage space utilization"
+echo ""
+df -h # df stands for disk free and shows you the amount of space taken up by drives, -h shows the size in kilobytes, megabytes and gigabytes.
+echo ""
+echo ""
+echo "Top 5 Processes Utilizing Memory"
+echo ""
+#ps includes a column that shows memory useage, 'sort' sorts the output for you, '-%mem' shows the memory instead of the CPU, | is pipeline to feed that output, 
+#'head' is the top command, -f defines i want the top 5 memory usage.
+ps aux --sort -%mem | head -5
