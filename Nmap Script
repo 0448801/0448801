@@ -1,0 +1,13 @@
+#!/bin/bash
+
+IPS=$(cat '/home/bmcguire/ips.txt')
+
+for ip in $IPS; do
+    nmap -sT -p80 $IP |grep open >> /dev/null
+    if [ $? -eq '0' ]; then 
+        echo "Port 80 is open on $IP" 
+    else 
+        echo "Port 80 is closed on $IP" 
+    fi 
+done 
+ 
